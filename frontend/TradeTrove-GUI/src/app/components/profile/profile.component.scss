@@ -1,0 +1,101 @@
+
+
+
+@import url('https://api.fontshare.com/v2/css?f[]=author@400,700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=plus jakarta@400,700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=gambarino@400,700&display=swap');
+
+*{
+  font-family:gambarino;
+  margin: 0;
+  padding: 0;
+  color: #d2bd9b;
+}
+// f5e8d3
+.outer-div{
+  background-color: #f5e8d3;
+  width: 97%;
+  margin: 1%;
+  border-radius: 12px;
+
+}
+
+.user-info{
+  background-image: url('/assets/background-circle.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 30%;
+  background-color: transparent;
+  display: flex;
+  padding: 1%;
+  border-radius: 10px;
+
+}
+
+
+.user-identity{
+    background-color: transparent;
+  width: 40%;
+  height: 100%;
+  margin: 1% 1%;
+  padding: 2%;
+}
+
+
+.user-image{
+background-image: url('/assets/user-image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 1% 1% 4% 2%;
+}
+
+
+.user-metrics{
+  width: 100%;
+  background-color: transparent;
+  margin-top: 1%;
+  border-radius: 12px;
+  border: 50px bold  #455347;
+  display: flex;
+  gap: 1%;
+  padding: 1%;
+  justify-content: start ;
+}
+
+
+
+.watchlist{
+  background-color: transparent;
+  color: #455347;
+  border: 3px solid #455347;
+
+  width: 35%;
+  padding: 2%;
+  border-radius: 15px;
+  margin: 0%;
+    color: #455347;
+
+}
+
+.settings{
+  background-color: transparentent;
+  color: #455347;
+
+  width: 60%;
+  padding: 2%;
+  border-radius: 15px;
+  border: 3px solid #455347;
+  margin: 0% 1% 1% 1%;
+  text-align: start;
+}
+
+a{
+    color: #455347;
+
+}

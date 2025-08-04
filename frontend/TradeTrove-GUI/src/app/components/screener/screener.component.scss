@@ -1,0 +1,92 @@
+
+@import url('https://api.fontshare.com/v2/css?f[]=author@400,700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=gambetta@400,700&display=swap');
+
+
+label{
+  color: #4c5f4e;
+  font-family: gambetta;
+  padding: 1%;
+  font-weight: bold;
+  width: 60%;
+
+}
+
+option{
+  color:#d2bd9b;
+  font-family: gambetta;
+  font-weight: bold;
+}
+
+select{
+  background-color: #4c5f4e;
+  font-family: gambetta;
+  color: #d2bd9b;
+  font-weight: bold;
+}
+
+
+table{
+  font-family: gambetta;
+  margin: 3% 1%;
+  width: 98%;
+
+  text-align: center;
+  color: #4c5f4e;
+}
+
+th{
+  color: #4c5f4e;
+  font-family: gambetta;
+  background-color: #d2bd9b;
+  height: 50px;
+  font-weight: bold;
+
+}
+
+td{
+  color: #4c5f4e;
+  font-family: gambetta;
+  background-color: #d2bd9b;
+  height: 70px;
+  font-weight: bold;
+  font-size: 14pt;
+  text-wrap: pretty;
+
+}
+
+.btn:hover{
+  animation: rescale  0.4s forwards;
+}
+
+
+@keyframes rescale {
+
+  to{
+      transform: scale(0.8);
+  }
+}
+
+
+li{
+  color: #4c5f4e;
+
+}
+
+a{
+  color: #d2bd9b  ;
+  background-color: #4c5f4e;
+  font-family: gambetta;
+  font-weight: bold;
+}
+
+a:hover{
+  background-color: #f5e8d3;
+  color: #4c5f4e;
+}
+
+
+
+// 4c5f4e
+
+// d2bd9b

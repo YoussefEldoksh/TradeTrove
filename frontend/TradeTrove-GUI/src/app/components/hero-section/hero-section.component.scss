@@ -1,8 +1,19 @@
-.container{
-
-  background-color: aquamarine;
+.outer-div{
+  background-color: #f5e8d3;
+  padding: 0;
+  margin: 0;
   display: flex;
   width: 100%;
-  flex-direction: column;
-  align-items: center;
+  height: 73vh;
+  gap: 15%;
+}
+
+button:hover{
+  animation:  enlarge 1s ease forwards;
+}
+
+
+@keyframes enlarge {
+  from{transform: scale(1)}
+  to{transform: scale(1.1);}
 }
