@@ -11,6 +11,7 @@ import { ProfileComponent } from '../profile/profile.component';
   styleUrl: './hero-section.component.scss'
 })
 export class HeroSectionComponent {
+
   router :Router = new Router();
   constructor(router:Router)
   {
@@ -20,4 +21,6 @@ export class HeroSectionComponent {
     goToProfile() {
       this.router.navigate(['screener']);
     }
+
+
 }

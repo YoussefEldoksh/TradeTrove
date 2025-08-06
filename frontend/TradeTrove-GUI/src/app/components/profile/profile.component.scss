@@ -75,11 +75,15 @@ background-image: url('/assets/user-image.png');
   color: #455347;
   border: 3px solid #455347;
 
-  width: 35%;
+  width: 38%;
   padding: 2%;
   border-radius: 15px;
   margin: 0%;
-    color: #455347;
+  color: #455347;
+
+  display: flex;
+  flex-direction: column;
+
 
 }
 
@@ -98,4 +102,27 @@ background-image: url('/assets/user-image.png');
 a{
     color: #455347;
 
+}
+
+a:hover{
+  animation: rescale 0.4s forwards;
+}
+
+@keyframes rescale {
+
+  to{
+      transform: scale(1.1);
+  }
+}
+
+
+
+button{
+  background-color: #455347;
+  font-family: author;
+  align-self: center;
+  width: 20%;
+  margin: 5% 5% 0% 0%;
+  padding: 2%;
+  font-size: 15pt;
 }

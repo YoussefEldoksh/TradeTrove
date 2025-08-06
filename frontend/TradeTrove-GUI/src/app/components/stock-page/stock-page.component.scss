@@ -1,0 +1,33 @@
+@import url("https://api.fontshare.com/css?f%5B%5D=author@400,700&serif=swap");
+@import url("https://api.fontshare.com/css?f%5B%5D=satoshi@400,700&serif=swap");
+
+
+
+.container{
+  width: 100%;
+  display: flex;
+  gap: 50%;
+}
+
+a{
+  color: #475449;
+  cursor: pointer;
+}
+
+a:hover{
+  background-color: #d5c29c;
+  color: #475449;
+}
+
+.btn {
+  background-color: #edf3ee;
+  border: solid 1px #475449;
+  margin: 1%;
+  color: #475449;
+}
+
+
+.btn:hover{
+    background-color: rgb(216, 237, 226);
+
+}

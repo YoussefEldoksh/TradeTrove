@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@primeuix/themes": "^1.2.3",
+    "install": "^0.13.0",
+    "npm": "^11.5.2",
+    "primeng": "^20.0.1"
+  }
+}

@@ -30,7 +30,6 @@ table{
   font-family: gambetta;
   margin: 3% 1%;
   width: 98%;
-
   text-align: center;
   color: #4c5f4e;
 }
@@ -52,7 +51,11 @@ td{
   font-weight: bold;
   font-size: 14pt;
   text-wrap: pretty;
+  padding-top: 1%;
 
+}
+.btn{
+  width: 10%;
 }
 
 .btn:hover{

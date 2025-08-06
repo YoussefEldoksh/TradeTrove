@@ -4,6 +4,7 @@ import { HeroSectionComponent } from './components/hero-section/hero-section.com
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { HomeComponent } from "./components/home/home.component";
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -14,4 +15,8 @@ import { HomeComponent } from "./components/home/home.component";
 })
 export class AppComponent {
   title = 'TradeTrove-GUI';
+
+  ngONInit():void{
+    AOS.init();
+  }
 }
