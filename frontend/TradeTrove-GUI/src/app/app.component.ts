@@ -5,11 +5,13 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { HomeComponent } from "./components/home/home.component";
 import * as AOS from 'aos';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeroSectionComponent, NavbarComponent, FooterComponent, HomeComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

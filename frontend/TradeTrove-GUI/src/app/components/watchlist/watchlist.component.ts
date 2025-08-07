@@ -9,5 +9,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './watchlist.component.scss'
 })
 export class WatchlistComponent {
-
+  
 }

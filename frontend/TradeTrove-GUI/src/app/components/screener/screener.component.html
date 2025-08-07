@@ -1,173 +1,322 @@
+    <main class="main-content">
+      <div class="container">
+            <!-- Filters -->
+            <div class="filter-card">
+                <div class="filter-header">
+                    <h2 class="filter-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                        </svg>
+                        Stock Filters
+                    </h2>
+                </div>
+                <div class="filter-content">
+                    <div class="filter-grid">
+                        <div class="filter-group">
+                            <label class="filter-label">Market Cap</label>
+                            <select class="filter-select">
+                                <option>Any</option>
+                                <option>Large Cap (>$10B)</option>
+                                <option>Mid Cap ($2B-$10B)</option>
+                                <option>Small Cap (<$2B)</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">Sector</label>
+                            <select class="filter-select">
+                                <option>Any</option>
+                                <option>Technology</option>
+                                <option>Healthcare</option>
+                                <option>Financial Services</option>
+                                <option>Consumer Discretionary</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">Price Range</label>
+                            <select class="filter-select">
+                                <option>Any</option>
+                                <option>Under $50</option>
+                                <option>$50 - $200</option>
+                                <option>Over $200</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">P/E Ratio</label>
+                            <select class="filter-select">
+                                <option>Any</option>
+                                <option>Under 15</option>
+                                <option>15 - 30</option>
+                                <option>Over 30</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<div class="outer-div" style="width: 100%;">
+            <!-- Results Summary -->
+            <div class="results-summary">
+                <p>Showing 8 of 8 stocks</p>
+            </div>
 
-  <div style="width: 100%; background-color: #f5e8d3; display: flex; gap: 5%; justify-content: center; align-items: center;">
+            <!-- Stock Table -->
+            <div class="table-card">
+                <div class="table-container">
+                    <table class="stock-table">
+                        <thead class="table-header">
+                            <tr>
+                                <th>Actions</th>
+                                <th>Company</th>
+                                <th>Symbol</th>
+                                <th>Exchange</th>
+                                <th>Sector</th>
+                                <th>Price</th>
+                                <th>Change</th>
+                                <th>Market Cap</th>
+                                <th>P/E Ratio</th>
+                                <th>Div Yield</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-row">
+                                <td class="table-cell">
+                                    <div class="action-buttons">
+                                        <button class="action-btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                            </svg>
+                                        </button>
+                                        <button class="action-btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td class="table-cell">
+                                    <div class="company-info">
+                                        <div class="company-logo">AAPL</div>
+                                        <div class="company-details">
+                                            <h4>Apple Inc.</h4>
+                                            <p>Consumer Electronics</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="table-cell">
+                                    <span class="badge badge-outline">AAPL</span>
+                                </td>
+                                <td class="table-cell">
+                                    <span class="badge badge-secondary">NASDAQ</span>
+                                </td>
+                                <td class="table-cell">
+                                    <span>Technology</span>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>$175.84</strong>
+                                </td>
+                                <td class="table-cell">
+                                    <div class="price-change positive">
+                                        <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                            <polyline points="17 6 23 6 23 12"></polyline>
+                                        </svg>
+                                        <span>+2.45</span>
+                                        <span>(+1.41%)</span>
+                                    </div>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>$2.75T</strong>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>28.5</strong>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>0.52%</strong>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-cell">
+                                    <div class="action-buttons">
+                                        <button class="action-btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                            </svg>
+                                        </button>
+                                        <button class="action-btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td class="table-cell">
+                                    <div class="company-info">
+                                        <div class="company-logo">MSFT</div>
+                                        <div class="company-details">
+                                            <h4>Microsoft Corporation</h4>
+                                            <p>Software</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="table-cell">
+                                    <span class="badge badge-outline">MSFT</span>
+                                </td>
+                                <td class="table-cell">
+                                    <span class="badge badge-secondary">NASDAQ</span>
+                                </td>
+                                <td class="table-cell">
+                                    <span>Technology</span>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>$378.85</strong>
+                                </td>
+                                <td class="table-cell">
+                                    <div class="price-change negative">
+                                        <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                                            <polyline points="17 18 23 18 23 12"></polyline>
+                                        </svg>
+                                        <span>-1.23</span>
+                                        <span>(-0.32%)</span>
+                                    </div>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>$2.81T</strong>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>32.1</strong>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>0.68%</strong>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-cell">
+                                    <div class="action-buttons">
+                                        <button class="action-btn watchlist-active">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+                                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                            </svg>
+                                        </button>
+                                        <button class="action-btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td class="table-cell">
+                                    <div class="company-info">
+                                        <div class="company-logo">GOOGL</div>
+                                        <div class="company-details">
+                                            <h4>Alphabet Inc.</h4>
+                                            <p>Internet Services</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="table-cell">
+                                    <span class="badge badge-outline">GOOGL</span>
+                                </td>
+                                <td class="table-cell">
+                                    <span class="badge badge-secondary">NASDAQ</span>
+                                </td>
+                                <td class="table-cell">
+                                    <span>Technology</span>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>$138.21</strong>
+                                </td>
+                                <td class="table-cell">
+                                    <div class="price-change positive">
+                                        <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                            <polyline points="17 6 23 6 23 12"></polyline>
+                                        </svg>
+                                        <span>+3.67</span>
+                                        <span>(+2.73%)</span>
+                                    </div>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>$1.75T</strong>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>25.8</strong>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>N/A</strong>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-cell">
+                                    <div class="action-buttons">
+                                        <button class="action-btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                            </svg>
+                                        </button>
+                                        <button class="action-btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td class="table-cell">
+                                    <div class="company-info">
+                                        <div class="company-logo">TSLA</div>
+                                        <div class="company-details">
+                                            <h4>Tesla Inc.</h4>
+                                            <p>Electric Vehicles</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="table-cell">
+                                    <span class="badge badge-outline">TSLA</span>
+                                </td>
+                                <td class="table-cell">
+                                    <span class="badge badge-secondary">NASDAQ</span>
+                                </td>
+                                <td class="table-cell">
+                                    <span>Consumer Discretionary</span>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>$248.50</strong>
+                                </td>
+                                <td class="table-cell">
+                                    <div class="price-change positive">
+                                        <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                            <polyline points="17 6 23 6 23 12"></polyline>
+                                        </svg>
+                                        <span>+12.34</span>
+                                        <span>(+5.22%)</span>
+                                    </div>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>$789B</strong>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>62.3</strong>
+                                </td>
+                                <td class="table-cell">
+                                    <strong>N/A</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-<div style="width: 20%;">
-
-  <label >Market Cap</label>
-  <select class="form-select" aria-label="Default select example">
-    <option selected>Any</option>
-    <option value="1">Any excl. Nano Cap (>$50M)</option>
-    <option value="2">Nano Cap (<$50M)</option>
-    <option value="3">Micro Cap ($50M to $300M)</option>
-    <option value="4">Small Cap ($300M to $2B)</option>
-    <option value="5">Mid Cap ($2B to $10B)</option>
-    <option value="6">Large Cap ($10B to $200B)</option>
-    <option value="7">Mega Cap (>$200B)</option>
-
-  </select>
-  </div>
-
-
-<div style="width: 20%;">
-
-  <label>Last Trade Price</label>
-  <select class="form-select" aria-label="Default select example">
-    <option selected>Any</option>
-    <option value="1">Under $5</option>
-    <option value="2">Under $10</option>
-    <option value="3">Over $1000</option>
-  </select>
-  </div>
-
-
-<div style="width: 20%;">
-
-  <label>Dividend Yield (%)</label>
-  <select class="form-select" aria-label="Default select example">
-    <option selected>Any</option>
-    <option value="1">No Dividend (>0%)</option>
-    <option value="2">High Yield (>5%)</option>
-    <option value="3">Very High Yield (>10%)</option>
-  </select>
-  </div>
-
-<div style="width: 20%;">
-
-  <label>P/E Ratio</label>
-  <select class="form-select" aria-label="Default select example">
-    <option selected>Any</option>
-    <option value="1">High (>50x)</option>
-    <option value="2">Low (2x to < 10x) </option>
-    <option value="3">Unprofitable (>0x)</option>
-  </select>
-  </div>
-
-
-
-  </div>
-
-  <div style="display: flex; flex-direction:column ; align-items: center;">
-
-  <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Company</th>
-      <th scope="col">Name</th>
-      <th scope="col">Exchange</th>
-      <th scope="col">Sector</th>
-      <th scope="col">Industry</th>
-      <th scope="col">P/E Ratio</th>
-      <th scope="col">Last Trade Price</th>
-
-    </tr>
-  </thead>
-  <tbody class="table-group-divider">
-    <tr>
-      <div style="width: 100%; background-color: #d2bd9b; display: flex; justify-content: center; align-items: center; gap: 25.4%;">
-
-        <button class="btn" style="font-size: 19pt; background: #455347; display: flex; align-items: center; justify-content: center; color: #d2bd9b; font-weight: bold; height: 30px; width: 15%; padding: 0;">+</button>
-        <div style="background-color:  grey; width: 40%; height: 52.8px;  border-radius: 10px;"></div>
-      </div>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>mdo</td>
-      <td>mdo</td>
-      <td>mdo</td>
-      <td>mdo</td>
-    </tr>
-    <tr>
-      <div style="width: 100%; background-color: #d2bd9b; display: flex; justify-content: center; gap: 25%; align-items: center;">
-        <button class="btn" style="font-size: 19pt; background: #455347; display: flex; align-items: center; justify-content: center; color: #d2bd9b; font-weight: bold; height: 30px; width: 15%; padding: 0;">+</button>
-        <div style="background-color: grey;width: 40%; height: 53px;  border-radius: 10px;"></div>
-      </div>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>fat</td>
-      <td>fat</td>
-      <td>fat</td>
-      <td>fat</td>
-    </tr>
-    <tr>
-      <div style="width: 100%; background-color: #d2bd9b; display: flex; justify-content: center; gap: 25%; align-items: center;">
-
-        <button class="btn" style="font-size: 19pt; background: #455347; display: flex; align-items: center; justify-content: center; color: #d2bd9b; font-weight: bold; height: 30px; width: 15%; padding: 0;">+</button>
-        <div style="background-color: grey; width: 40%; height: 53px; border-radius: 10px; "></div>
-      </div>
-      <td>John</td>
-      <td>Doe</td>
-      <td>social</td>
-      <td>social</td>
-      <td>social</td>
-      <td>social</td>
-    </tr>
-    <tr>
-      <div style="width: 100%; background-color: #d2bd9b; display: flex; justify-content: center; gap: 25%; align-items: center;">
-
-        <button class="btn" style="font-size: 19pt; background: #455347; display: flex; align-items: center; justify-content: center; color: #d2bd9b; font-weight: bold; height: 30px; width: 15%; padding: 0;">+</button>
-        <div style="background-color:  grey; width: 40%; height: 53px;  border-radius: 10px;"></div>
-      </div>
-      <td>John</td>
-      <td>Doe</td>
-      <td>social</td>
-      <td>social</td>
-      <td>social</td>
-      <td>social</td>
-    </tr>
-    <tr>
-      <div style="width: 100%; background-color: #d2bd9b; display: flex; justify-content: center; gap: 25%; align-items: center;">
-
-        <button class="btn" style="font-size: 19pt; background: #455347; display: flex; align-items: center; justify-content: center; color: #d2bd9b; font-weight: bold; height: 30px; width: 15%; padding: 0;">+</button>
-        <div style="background-color:  grey; width: 40%; height: 53px;  border-radius: 10px; "></div>
-      </div>
-      <td>John</td>
-      <td>Doe</td>
-      <td>social</td>
-      <td>social</td>
-      <td>social</td>
-      <td>social</td>
-    </tr>
-    <tr>
-      <div style="width: 100%; background-color: #d2bd9b; display: flex; justify-content: center; gap: 25.4%; align-items: center;">
-
-        <button class="btn" style="font-size: 19pt; background: #455347; display: flex; align-items: center; justify-content: center; color: #d2bd9b; font-weight: bold; height: 30px; width: 15%; padding: 0;">+</button>
-        <div style="background-color:  grey; width: 40%; height: 53px;  border-radius: 10px;"></div>
-      </div>
-      <td>John</td>
-      <td>Doe</td>
-      <td>social</td>
-      <td>social</td>
-      <td>social</td>
-      <td>social</td>
-    </tr>
-  </tbody>
-</table>
-
-
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item ">
-      <a class="page-link" href="#">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
-</nav>
-
-
-</div>
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="pagination-btn">Previous</a>
+                <a href="#" class="pagination-btn active">1</a>
+                <a href="#" class="pagination-btn">2</a>
+                <a href="#" class="pagination-btn">3</a>
+                <a href="#" class="pagination-btn">Next</a>
+            </div>
+        </div>
+    </main>

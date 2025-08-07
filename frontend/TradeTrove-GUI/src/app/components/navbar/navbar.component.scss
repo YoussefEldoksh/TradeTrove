@@ -2,6 +2,8 @@
 @import url('https://api.fontshare.com/v2/css?f[]=stardom@400,700&display=swap');
 @import url('https://api.fontshare.com/v2/css?f[]=plus jakarta@400,700&display=swap');
 @import url('https://api.fontshare.com/v2/css?f[]=gambetta@400,700&display=swap');
+@import url("https://api.fontshare.com/css?f%5B%5D=satoshi@400,700&serif=swap");
+
 
 
 a {
@@ -17,7 +19,7 @@ a {
   border-radius: 5px;
   margin: 2% 0%;
   color: #d2c4a4;
-  font-family: gambetta;
+  font-family: satoshi;
   font-weight: bold;
   font-size: 16px;
 
@@ -33,6 +35,11 @@ button:active {
   transform: scale(0.9);
 }
 
+
+form{
+    width: 100%;
+
+}
 
 .group {
   display: flex;

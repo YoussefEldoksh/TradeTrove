@@ -4,9 +4,11 @@
 @import url('https://api.fontshare.com/v2/css?f[]=author@400,700&display=swap');
 @import url('https://api.fontshare.com/v2/css?f[]=plus jakarta@400,700&display=swap');
 @import url('https://api.fontshare.com/v2/css?f[]=gambarino@400,700&display=swap');
+@import url("https://api.fontshare.com/css?f%5B%5D=satoshi@400,700&serif=swap");
+
 
 *{
-  font-family:gambarino;
+  font-family:satoshi;
   margin: 0;
   padding: 0;
   color: #d2bd9b;
@@ -119,7 +121,7 @@ a:hover{
 
 button{
   background-color: #455347;
-  font-family: author;
+  font-family: satoshi;
   align-self: center;
   width: 20%;
   margin: 5% 5% 0% 0%;
