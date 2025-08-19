@@ -9,11 +9,11 @@ import { StockFinancialStatements } from '../../models/stock-financial-statement
 export class StockFinancialStatementsService {
 
 private apiUrl = 'https://www.alphavantage.co/query';
- private apiKey = 'ZLYYLQ9CA4SATO6J';
+ private apiKey = 'G6W9HA8AKRP3TUC5';
 
  constructor(private http: HttpClient) {}
 
-getStockDayData(symbol: string): Observable<{ latest: StockFinancialStatements; previous: StockFinancialStatements | null }> {
+getStockIncomeStatments(symbol: String): Observable<{ latest: StockFinancialStatements; previous: StockFinancialStatements | null }> {
   // const url = `${this.apiUrl}?function=INCOME_STATEMENT&symbol=${symbol}&apikey=${this.apiKey}`;
   const url = "https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=IBM&apikey=demo";
 

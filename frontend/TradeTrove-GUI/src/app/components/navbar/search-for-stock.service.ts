@@ -4,7 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SearchForStockService {
-  searchWord: string = 'IBM';
+  searchWord: String = 'IBM';
+
+
   constructor() {}
 
 }

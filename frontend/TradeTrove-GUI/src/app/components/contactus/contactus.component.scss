@@ -1,0 +1,76 @@
+
+@import url("https://api.fontshare.com/css?f%5B%5D=zodiak@400,700&display=swap");
+@import url("https://api.fontshare.com/css?f%5B%5D=satoshi@400,700&display=swap");
+
+
+
+*{
+  margin: 0%;
+  padding: 0%;
+}
+
+
+.form-group{
+  width: 80%;
+  margin: 1.2rem;
+}
+
+label {
+display: block;
+margin-bottom: 0.5rem;
+font-size: 0.9rem;
+color: #333;
+font-weight: 500;
+}
+.required {
+  color: #e74c3c;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #565555;
+    background-color: transparent;
+    font-size: 0.9rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+     border-bottom-color: #333;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #6c6a6a;
+    font-size: 1rem;
+}
+.submit-btn {
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  margin: 1.7rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-end;
+}
+
+textarea {
+  resize: none;
+  min-height: 50px;
+  font-family: inherit;
+}
+.submit-btn:hover {
+ background-color: #333;
+}

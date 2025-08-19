@@ -10,12 +10,12 @@ import {StockOverView} from '../../models/stock-over-view';
 })
 export class StockOverViewServiceService {
   private apiUrl = 'https://www.alphavantage.co/query';
-  private apiKey = 'ZLYYLQ9CA4SATO6J';
+  private apiKey = 'G6W9HA8AKRP3TUC5';
 
   constructor(private http: HttpClient) {}
 
-  getStockOverview(symbol: string): Observable<StockOverView> {
-    // const url = `${this.apiUrl}?function=OVERVIEW&symbol=${symbol}&apikey=${this.apiKey}`;
+  getStockOverview(symbol: String): Observable<StockOverView> {
+    // const url = `${this.apiUrl}?function=OVERVIEW&symbol=${symbol}&apikey=${this.apiKey}`;    
     const url = "https://www.alphavantage.co/query?function=OVERVIEW&symbol=IBM&apikey=demo";
     return this.http.get<StockOverView>(url).pipe(
       map(data => this.mapToStockOverview(data)),

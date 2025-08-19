@@ -1,11 +1,14 @@
+
+@import url("https://api.fontshare.com/css?f%5B%5D=stardom@400,700&display=swap");
+
 *{
-  font-family: 'stardom', sans-serif;
+
   color: rgb(237, 205, 164);
 }
 
 
 footer{
-  margin-top: 2%;
+
   width: 100%;
   height: 200px;
   background: #455347;
@@ -13,6 +16,7 @@ footer{
   flex-direction: column;
   align-items: center;
   justify-self: end;
+  padding-bottom: 10%;
 }
 
 
@@ -31,7 +35,8 @@ a{
   text-decoration: none;
   margin: 1%;
   text-align: center;
-  font-size: 12pt;
+  font-size: 20pt;
+  font-family: 'stardom', sans-serif;
 
 }
 
@@ -39,6 +44,7 @@ a{
 h5{
   font-size: 11pt;
   margin-bottom: 0%;
+  font-family: 'stardom', sans-serif;
 }
 
 h1{
@@ -46,5 +52,6 @@ h1{
   font-size: 22pt;
   margin-top: 2%;
   text-align: center;
+  font-family: 'stardom', sans-serif;
 
 }

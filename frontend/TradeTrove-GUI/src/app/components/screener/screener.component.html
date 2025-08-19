@@ -1,6 +1,5 @@
     <main class="main-content">
       <div class="container">
-            <!-- Filters -->
             <div class="filter-card">
                 <div class="filter-header">
                     <h2 class="filter-title">
@@ -53,9 +52,8 @@
                 </div>
             </div>
 
-            <!-- Results Summary -->
             <div class="results-summary">
-                <p>Showing 8 of 8 stocks</p>
+                <p>Showing {{currentPage}} of {{totalPages}} Pages</p>
             </div>
 
             <!-- Stock Table -->
@@ -69,14 +67,14 @@
                                 <th>Symbol</th>
                                 <th>Exchange</th>
                                 <th>Sector</th>
-                                <th>Price</th>
-                                <th>Change</th>
                                 <th>Market Cap</th>
                                 <th>P/E Ratio</th>
                                 <th>Div Yield</th>
                             </tr>
                         </thead>
                         <tbody>
+
+                          @for (stock of paginatedStocks ; track $index ) {
                             <tr class="table-row">
                                 <td class="table-cell">
                                     <div class="action-buttons">
@@ -85,7 +83,7 @@
                                                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                                             </svg>
                                         </button>
-                                        <button class="action-btn">
+                                        <button class="action-btn" (click)="viewStock(stock.Symbol)">
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                                 <circle cx="12" cy="12" r="3"></circle>
@@ -95,216 +93,36 @@
                                 </td>
                                 <td class="table-cell">
                                     <div class="company-info">
-                                        <div class="company-logo">AAPL</div>
+                                        <div class="company-logo" #stockSymbol>{{stock.Symbol}}</div>
                                         <div class="company-details">
-                                            <h4>Apple Inc.</h4>
-                                            <p>Consumer Electronics</p>
+                                            <h4>{{stock.Name}}</h4>
+                                            <p>{{stock.Sector}}</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="table-cell">
-                                    <span class="badge badge-outline">AAPL</span>
+                                    <span class="badge badge-outline">{{stock.Symbol}}</span>
                                 </td>
                                 <td class="table-cell">
-                                    <span class="badge badge-secondary">NASDAQ</span>
+                                    <span class="badge badge-secondary">{{stock.Exchange}}</span>
                                 </td>
                                 <td class="table-cell">
-                                    <span>Technology</span>
+                                    <span>{{stock.Sector}}</span>
+                                </td>
+
+                                <td class="table-cell">
+                                    <strong>${{formatMarketCap(stock.MarketCapitalization)}}</strong>
                                 </td>
                                 <td class="table-cell">
-                                    <strong>$175.84</strong>
+                                    <strong>{{stock.PERatio}}</strong>
                                 </td>
                                 <td class="table-cell">
-                                    <div class="price-change positive">
-                                        <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                                            <polyline points="17 6 23 6 23 12"></polyline>
-                                        </svg>
-                                        <span>+2.45</span>
-                                        <span>(+1.41%)</span>
-                                    </div>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>$2.75T</strong>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>28.5</strong>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>0.52%</strong>
+                                    <strong>{{stock.DividendYield}}%</strong>
                                 </td>
                             </tr>
-                            <tr class="table-row">
-                                <td class="table-cell">
-                                    <div class="action-buttons">
-                                        <button class="action-btn">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                            </svg>
-                                        </button>
-                                        <button class="action-btn">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                                <circle cx="12" cy="12" r="3"></circle>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </td>
-                                <td class="table-cell">
-                                    <div class="company-info">
-                                        <div class="company-logo">MSFT</div>
-                                        <div class="company-details">
-                                            <h4>Microsoft Corporation</h4>
-                                            <p>Software</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="table-cell">
-                                    <span class="badge badge-outline">MSFT</span>
-                                </td>
-                                <td class="table-cell">
-                                    <span class="badge badge-secondary">NASDAQ</span>
-                                </td>
-                                <td class="table-cell">
-                                    <span>Technology</span>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>$378.85</strong>
-                                </td>
-                                <td class="table-cell">
-                                    <div class="price-change negative">
-                                        <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
-                                            <polyline points="17 18 23 18 23 12"></polyline>
-                                        </svg>
-                                        <span>-1.23</span>
-                                        <span>(-0.32%)</span>
-                                    </div>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>$2.81T</strong>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>32.1</strong>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>0.68%</strong>
-                                </td>
-                            </tr>
-                            <tr class="table-row">
-                                <td class="table-cell">
-                                    <div class="action-buttons">
-                                        <button class="action-btn watchlist-active">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
-                                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                            </svg>
-                                        </button>
-                                        <button class="action-btn">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                                <circle cx="12" cy="12" r="3"></circle>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </td>
-                                <td class="table-cell">
-                                    <div class="company-info">
-                                        <div class="company-logo">GOOGL</div>
-                                        <div class="company-details">
-                                            <h4>Alphabet Inc.</h4>
-                                            <p>Internet Services</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="table-cell">
-                                    <span class="badge badge-outline">GOOGL</span>
-                                </td>
-                                <td class="table-cell">
-                                    <span class="badge badge-secondary">NASDAQ</span>
-                                </td>
-                                <td class="table-cell">
-                                    <span>Technology</span>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>$138.21</strong>
-                                </td>
-                                <td class="table-cell">
-                                    <div class="price-change positive">
-                                        <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                                            <polyline points="17 6 23 6 23 12"></polyline>
-                                        </svg>
-                                        <span>+3.67</span>
-                                        <span>(+2.73%)</span>
-                                    </div>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>$1.75T</strong>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>25.8</strong>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>N/A</strong>
-                                </td>
-                            </tr>
-                            <tr class="table-row">
-                                <td class="table-cell">
-                                    <div class="action-buttons">
-                                        <button class="action-btn">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                            </svg>
-                                        </button>
-                                        <button class="action-btn">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                                <circle cx="12" cy="12" r="3"></circle>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </td>
-                                <td class="table-cell">
-                                    <div class="company-info">
-                                        <div class="company-logo">TSLA</div>
-                                        <div class="company-details">
-                                            <h4>Tesla Inc.</h4>
-                                            <p>Electric Vehicles</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="table-cell">
-                                    <span class="badge badge-outline">TSLA</span>
-                                </td>
-                                <td class="table-cell">
-                                    <span class="badge badge-secondary">NASDAQ</span>
-                                </td>
-                                <td class="table-cell">
-                                    <span>Consumer Discretionary</span>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>$248.50</strong>
-                                </td>
-                                <td class="table-cell">
-                                    <div class="price-change positive">
-                                        <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                                            <polyline points="17 6 23 6 23 12"></polyline>
-                                        </svg>
-                                        <span>+12.34</span>
-                                        <span>(+5.22%)</span>
-                                    </div>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>$789B</strong>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>62.3</strong>
-                                </td>
-                                <td class="table-cell">
-                                    <strong>N/A</strong>
-                                </td>
-                            </tr>
+                          }
+
+
                         </tbody>
                     </table>
                 </div>
@@ -312,11 +130,11 @@
 
             <!-- Pagination -->
             <div class="pagination">
-                <a href="#" class="pagination-btn">Previous</a>
-                <a href="#" class="pagination-btn active">1</a>
-                <a href="#" class="pagination-btn">2</a>
-                <a href="#" class="pagination-btn">3</a>
-                <a href="#" class="pagination-btn">Next</a>
+                <a  class="pagination-btn" (click)="changePage(currentPage - 1)">Previous</a>
+                <a  class="pagination-btn" role="button" (click)="changePage(currentPage)">{{currentPage}}</a>
+                <a  class="pagination-btn" (click)="changePage(currentPage + 1)" #numberbox2>{{currentPage + 1}}</a>
+                <a  class="pagination-btn" (click)="changePage(currentPage + 2)" #numberbox2>{{currentPage + 2}}</a>
+                <a  class="pagination-btn" (click)="changePage(currentPage + 1)"  >Next</a>
             </div>
         </div>
     </main>

@@ -1,3 +1,7 @@
+import { Stock1YDataService } from './stock1-ydata.service';
+import { StockData3MService } from './stock-data3-m.service';
+import { StockData5DaysService } from './stock-data5-days.service';
+import { StockDataIntraMonth } from './../../models/stock-data-intra-month';
 import { StockDayChartDataService } from './stock-day-chart-data.service';
 import { StockDayChartData } from './../../models/stock-day-chart-data';
 import { StockFinancialStatements } from './../../models/stock-financial-statements';
@@ -11,6 +15,9 @@ import { StockOverViewServiceService } from './stock-over-view-service.service';
 import { StockDayDataService } from './stock-day-data.service';
 import { StockDayData } from '../../models/stock-day-data';
 import { SearchForStockService } from '../navbar/search-for-stock.service';
+import { StockDataIntraMonthService } from './stock-data-intra-month.service';
+import { Stock5YDataService } from './stock5-ydata.service';
+import Aos from 'aos';
 
 
 
@@ -24,8 +31,6 @@ Chart.register(...registerables);
 })
 export class StockPageComponent  implements OnInit, AfterViewInit{
 
-  private apiUrl = 'https://www.alphavantage.co/query';
-  private apiKey = 'O4T94T6QQ5T9Y0F0';
 
 
 
@@ -37,12 +42,30 @@ export class StockPageComponent  implements OnInit, AfterViewInit{
   isLoadingChart = false;
   chartError: string | null = null;
   chart: Chart | null = null;
+  stockIntraMonthData : StockDataIntraMonth[] = [];
+  stockData5D : StockDataIntraMonth[] = [];
+  stockData3M : StockDataIntraMonth[] = [];
+  stockData1Y : StockDataIntraMonth[] = [];
+  stockData5Y : StockDataIntraMonth[] = [];
 
 
 
-  constructor(private http: HttpClient, private stockService: StockOverViewServiceService, private dayData: StockDayDataService, private stockFinancialStatementsService: StockFinancialStatementsService, private stockDayChartDataService: StockDayChartDataService, private searchInPut: SearchForStockService){}
+  constructor(
+    private http: HttpClient,
+    private stockService: StockOverViewServiceService,
+    private dayData: StockDayDataService,
+    private stockFinancialStatementsService: StockFinancialStatementsService,
+    private stockDayChartDataService: StockDayChartDataService,
+    private searchInPut: SearchForStockService,
+    private stockIntraMonthDataService: StockDataIntraMonthService,
+    private stockData5DaysService : StockData5DaysService,
+    private stockData3MService:StockData3MService,
+    private stock1YDataService:Stock1YDataService,
+    private stock5YDataService:Stock5YDataService
+  ){}
 
   ngOnInit(): void {
+
 
       this.stockService.getStockOverview(this.searchInPut.searchWord).subscribe({
         next: (data)=>{
@@ -58,7 +81,7 @@ export class StockPageComponent  implements OnInit, AfterViewInit{
           this.stockDayData = data2;
         }
       })
-      this.stockFinancialStatementsService.getStockDayData(this.searchInPut.searchWord).subscribe({
+      this.stockFinancialStatementsService.getStockIncomeStatments(this.searchInPut.searchWord).subscribe({
     next: (data) => {
       this.latestReport = data.latest;
       this.previousReport = data.previous;
@@ -67,13 +90,18 @@ export class StockPageComponent  implements OnInit, AfterViewInit{
       console.error('Error:', err);
     }
   });
-this.fetchIntradayData();
+    this.fetchIntradayData();
+    this.fetchingIntraMonthData();
+    this.fetching5DData();
+    this.fetching3MData();
+    this.fetching1YData();
+    this.fetching5YData();
   }
 
 
 
 
-  private fetchIntradayData(): void {
+   fetchIntradayData(): void {
     this.isLoadingChart = true;
     this.chartError = null;
     this.stockDayChartDataService.getIntradayData('IBM', '5min').subscribe({
@@ -81,7 +109,7 @@ this.fetchIntradayData();
         this.isLoadingChart = false;
         this.stockDayChartDataIntraDay = data;
         // console.log('Intraday Data:', data); // Debug
-        this.updateChartData();
+        this.updateChartDataForDayData();
       },
       error: (err) => {
         this.isLoadingChart = false;
@@ -92,8 +120,118 @@ this.fetchIntradayData();
     });
   }
 
+  fetchingIntraMonthData(): void{
+    this.isLoadingChart = true;
+    this.chartError = null;
 
-  private updateChartData(): void {
+    this.stockIntraMonthDataService.getIntraMonthData(this.searchInPut.searchWord).subscribe({
+    next: (data) => {
+        this.isLoadingChart = false;
+        this.stockIntraMonthData = data;
+        // console.log('Intraday Data:', data); // Debug
+      },
+
+    error: (err) => {
+        this.isLoadingChart = false;
+        this.stockIntraMonthData = [];
+        this.chartError = err.message || 'Failed to load chart data';
+        console.error('Error fetching Intramonth data:', err);
+      }
+    })
+
+  }
+
+
+
+  fetching5DData(): void{
+    this.isLoadingChart = true;
+    this.chartError = null;
+
+    this.stockData5DaysService.get5DData(this.searchInPut.searchWord).subscribe({
+    next: (data) => {
+        this.isLoadingChart = false;
+        this.stockData5D = data;
+        // console.log('Intraday Data:', data); // Debug
+      },
+
+    error: (err) => {
+        this.isLoadingChart = false;
+        this.stockData5D = [];
+        this.chartError = err.message || 'Failed to load chart data';
+        console.error('Error fetching 5D data:', err);
+      }
+    })
+
+  }
+
+
+
+
+  fetching3MData(): void{
+    this.isLoadingChart = true;
+    this.chartError = null;
+
+    this.stockData3MService.get3MonthData(this.searchInPut.searchWord).subscribe({
+    next: (data) => {
+        this.isLoadingChart = false;
+        this.stockData3M = data;
+      },
+
+    error: (err) => {
+        this.isLoadingChart = false;
+        this.stockData3M = [];
+        this.chartError = err.message || 'Failed to load chart data';
+        console.error('Error fetching 3M data:', err);
+      }
+    })
+
+  }
+
+
+  fetching1YData(): void{
+    this.isLoadingChart = true;
+    this.chartError = null;
+
+    this.stock1YDataService.get1YData(this.searchInPut.searchWord).subscribe({
+    next: (data) => {
+        this.isLoadingChart = false;
+        this.stockData1Y = data;
+        // console.log('Intraday Data:', data); // Debug
+      },
+
+    error: (err) => {
+        this.isLoadingChart = false;
+        this.stockData1Y = [];
+        this.chartError = err.message || 'Failed to load chart data';
+        console.error('Error fetching 1Y data:', err);
+      }
+    })
+
+  }
+
+  fetching5YData(): void{
+    this.isLoadingChart = true;
+    this.chartError = null;
+
+    this.stock5YDataService.get5YData(this.searchInPut.searchWord).subscribe({
+    next: (data) => {
+        this.isLoadingChart = false;
+        this.stockData5Y = data;
+        // console.log('Intraday Data:', data); // Debug
+      },
+
+    error: (err) => {
+        this.isLoadingChart = false;
+        this.stockData5Y = [];
+        this.chartError = err.message || 'Failed to load chart data';
+        console.error('Error fetching 5Y data:', err);
+      }
+    })
+
+  }
+
+
+   updateChartDataForDayData(): void {
     // Update chart data with fetched intraday data
     this.config.data.labels = (this.stockDayChartDataIntraDay ?? []).map(point => point.timestamp);
     this.config.data.datasets[0].data = (this.stockDayChartDataIntraDay ?? []).map(point => point.close);
@@ -102,11 +240,56 @@ this.fetchIntradayData();
     }
   }
 
+   updateChartDataForMonthData(): void {
+    // Update chart data with fetched intraday data
+    this.config.data.labels = (this.stockIntraMonthData ?? []).map(point => point.timestamp);
+    this.config.data.datasets[0].data = (this.stockIntraMonthData ?? []).map(point => point.close);
+    if (this.chart) {
+      this.chart.update(); // Refresh chart
+    }
+  }
+
+
+
+     updateChartDataFor5D(): void {
+      // Update chart data with fetched intraday data
+      this.config.data.labels = (this.stockData5D ?? []).map(point => point.timestamp);
+      this.config.data.datasets[0].data = (this.stockData5D ?? []).map(point => point.close);
+      if (this.chart) {
+        this.chart.update(); // Refresh chart
+      }
+    }
+
+     updateChartDataFor3M(): void {
+      // Update chart data with fetched intraday data
+      this.config.data.labels = (this.stockData3M ?? []).map(point => point.timestamp);
+      this.config.data.datasets[0].data = (this.stockData3M ?? []).map(point => point.close);
+      if (this.chart) {
+        this.chart.update(); // Refresh chart
+      }
+    }
+
+    updateChartDataFor1Y(): void {
+     // Update chart data with fetched intraday data
+     this.config.data.labels = (this.stockData1Y ?? []).map(point => point.timestamp);
+     this.config.data.datasets[0].data = (this.stockData1Y ?? []).map(point => point.close);
+     if (this.chart) {
+       this.chart.update(); // Refresh chart
+     }
+   }
+    updateChartDataFor5Y(): void {
+     // Update chart data with fetched intraday data
+     this.config.data.labels = (this.stockData5Y ?? []).map(point => point.timestamp);
+     this.config.data.datasets[0].data = (this.stockData5Y ?? []).map(point => point.close);
+     if (this.chart) {
+       this.chart.update(); // Refresh chart
+     }
+   }
 
 
 
 
- formatMarketCap(value: number): string {
+ formatMarketCap(value: number): String {
     if (!value) return 'N/A';
     const absValue = Math.abs(value);
     if (absValue >= 1e12) return (value / 1e12).toFixed(2) + 'T';
@@ -120,8 +303,11 @@ this.fetchIntradayData();
       return 'N/A';
     }
     const value: number = this.stockDayData.price - this.stockDayData.previousClose;
-    return value > 0 ? '+' + value.toFixed(4).toString() : '-' + value.toFixed(4).toString();
+    return value > 0 ? '+' + value.toFixed(4).toString() :  value.toFixed(4).toString();
  }
+
+
+
  changePercentage(value1:number, value2: number) : string | null {
 
   if (value2 === 0 || isNaN(value1) || isNaN(value2) || value1 === null || value2 === null) {
@@ -174,6 +360,14 @@ ngAfterViewInit() {
  } else {
    console.error('Canvas element with ID "myChart" not found');
  }
+
+ Aos.init({
+    duration: 1000,
+    once: true,
+    easing: 'ease-in-out',
+  });
+
+ Aos.refresh()
 }
 
 
@@ -183,7 +377,7 @@ ngAfterViewInit() {
 
 
 
-  displayOverView(overviewTap:HTMLElement, financials:HTMLElement, overviewTap2:HTMLElement){
+displayOverView(overviewTap:HTMLElement, financials:HTMLElement, overviewTap2:HTMLElement){
 
       overviewTap.classList.remove('d-none');
       overviewTap2.classList.remove('d-none');

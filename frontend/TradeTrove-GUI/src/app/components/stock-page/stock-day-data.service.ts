@@ -10,11 +10,11 @@ import { StockDayData } from '../../models/stock-day-data';
 export class StockDayDataService {
 
  private apiUrl = 'https://www.alphavantage.co/query';
- private apiKey = 'ZLYYLQ9CA4SATO6J';
+ private apiKey = 'G6W9HA8AKRP3TUC5';
 
  constructor(private http: HttpClient) {}
 
-  getStockDayData(symbol: string): Observable<StockDayData> {
+  getStockDayData(symbol: String): Observable<StockDayData> {
     // const url = `${this.apiUrl}?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${this.apiKey}`;
     const url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=demo";
 

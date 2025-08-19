@@ -14,7 +14,12 @@ export class StockDayChartDataService {
 
 constructor(private http: HttpClient) {}
 
-  getIntradayData(symbol: string, interval: string = '5min'): Observable<StockDayChartData[]> {
+ private apiUrl = 'https://www.alphavantage.co/query';
+ private apiKey = 'G6W9HA8AKRP3TUC5';
+
+
+  getIntradayData(symbol: String, interval: string = '5min'): Observable<StockDayChartData[]> {
+    // const url = `${this.apiUrl}?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=${interval}&apikey=${this.apiKey}`;
   const url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo";
     return this.http.get<StockDayChartData>(url).pipe(
       map((data) => {
